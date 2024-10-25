@@ -47,9 +47,9 @@ namespace NotionDB2iCal.Controllers
                 if (desc.RichText.Any())
                     calendarEvent.Description = desc.RichText[0].PlainText;
                 if (date.Date.Start.HasValue)
-                    calendarEvent.Start = new CalDateTime(date.Date.Start.Value);
+                    calendarEvent.Start = new CalDateTime(date.Date.Start.Value.ToUniversalTime());
                 if (date.Date.End.HasValue)
-                    calendarEvent.End = new CalDateTime(date.Date.End.Value);
+                    calendarEvent.End = new CalDateTime(date.Date.End.Value.ToUniversalTime());
 
                 calendar.Events.Add(calendarEvent);
             }
